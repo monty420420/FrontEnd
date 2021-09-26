@@ -1,0 +1,100 @@
+:root{      /*전체 정의*/
+    --text-color: #f0f4f5;
+    --background-color: #266343;
+    --accent-color:pink;
+}
+body{
+    margin: 0;
+    font-family: 'Scheherazade New';
+}
+
+a{
+    text-decoration: none;
+    color: var(--text-color);  /*정의된 컬러사용*/
+}
+
+.navbar{
+    display: flex; /*flex컨테이너 공간나누기*/
+    justify-content: space-between;
+    align-items: center;
+    background-color: #263343;
+}
+
+.navbar__logo{
+    font-size: 24px;
+    color: white;
+}
+
+.navbar__logo i{
+    color: #d49466;
+}
+
+.navbar__menu{
+     display: flex; /*한줄의 하나씩*/
+     list-style: none; /*점없애기*/
+     padding-left: 0; /*바깥 공간(오브젝트 내부여백)때문에 패딩 0값주어야 가운데로오게된다*/
+}
+
+.navbar__menu li{
+    padding: 8px 12px; /*padding: 위아래px 좌우px*/
+}
+
+.navbar__menu li:hover{
+    background-color: #d49466;
+    border-radius: 4px;
+}
+
+.navbar__icons {
+       list-style: none;
+       color: white;
+       display: flex;
+       padding-left: 0; /*바깥 공간(오브젝트 내부여백)때문에 패딩 0값주어야 가운데로오게된다*/
+}
+
+.navbar__icons li{
+    padding: 8px 12px;
+}
+
+.navbar__toogleBtn{
+    display: none; /*화면작아졌을때만 토글버튼 나오게*/
+    position: absolute; /*토글버튼 위치조정*/
+    right: 32px;
+    font-size: 24px;
+    color: #d49466;
+}
+
+/*반응형 미디어쿼리*/
+@media screen and (max-width: 768px) { /*max-width가 768일때*/
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start; 
+        padding: 8px 25px;
+    }
+
+    .navbar__menu{
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar__menu li{
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar__icons{
+        display: none;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar__toogleBtn{
+        display: block; /*max-width가 768px일때만 보이게*/
+    }
+
+    .navbar__menu.active,
+    .navbar__icons.active{
+        display: flex;
+    }
+}
